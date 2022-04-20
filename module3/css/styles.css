@@ -1,0 +1,45 @@
+.menu-tile {
+	background-color: #ffedd9;
+	padding: 15px;
+	margin-bottom: 25px;
+}
+
+.bg-light {
+	background-color: #edaf6b!important;
+}
+
+body {
+	background-color: #fffdfa;
+}
+
+h1, h2, h3 {
+	color: #8a2900;
+}
+
+h1 {
+	font-weight:  bold;
+}
+
+h2 {
+	margin: 10px 0px;
+}
+
+a {
+	color:  #8a2900;
+	text-decoration: none;
+}
+
+a:hover {
+	color:  #d64102;
+	text-decoration: none;
+}
+
+.nav-link {
+	font-size: 1.2em;
+}
+
+@media only screen and (min-width:  576px) {
+	.navbar-nav {
+		display:  none;
+	}
+}
