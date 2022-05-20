@@ -72,7 +72,7 @@ showLoading("#main-content");
 $ajaxUtils.sendGetRequest(
   allCategoriesUrl,
   buildAndShowHomeHTML, // ***** STEP 1: Substituted [...]
-  true); // Explicit flag to process into object literal
+  true);
 });
 
 
@@ -87,15 +87,10 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtmlUrl) {
-      var randomCategory = chooseRandomCategory(categories);
-      var chosenCategoryShortName = "" + randomCategory.short_name;
-      homeHtmlUrl = insertProperty(homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortName);
-      var homeHtmlToInsertIntoMainPage = homeHtmlUrl;
+      var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
+      chosenCategoryShortName = "'" + chosenCategoryShortName + "'";
+      var homeHtmlToInsertIntoMainPage = insertProperty (homeHtmlUrl, "randomCategoryShortName", chosenCategoryShortName);
 
-        // STEP 2. var chosenCategoryShortName = ....
-        // Call chooseRandomCategory, passing it retrieved 'categories'
-        // Pay attention to what type of data that function returns vs what the chosenCategoryShortName
-      // variable's name implies it expects. **I think this means make it an object
 
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
       // chosen category from STEP 2, e.g. chosenCategoryShortName. Use existing insertProperty function for that purpose.
@@ -106,11 +101,9 @@ function buildAndShowHomeHTML (categories) {
       // to look like. For example, a valid call would look something like this:
       // $dc.loadMenuItems('L')
       // Hint: you need to surround the chosen category short name with something before inserting
-      // it into the home html snippet.
-      //
-      
+      // it into the home html snippet.      
 
-      // STEP 4: Insert the produced HTML in STEP 3 into the main page
+      // STEP 4: Insert the HTML in STEP 3 into main page
       
       insertHtml("#main-content", homeHtmlToInsertIntoMainPage);
 
